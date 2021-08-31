@@ -1,9 +1,10 @@
-const express = require('Express');
-const app = Express();
+const express = require('express');
+const app = express();
+const shelterRoutes = require('./routes/shelters');
+const dogsRoutes = require('./routes/dogs');
 
-app.get('/', (res, req) =>{
-    res.send("working")
-})
+app.use('/shelters', shelterRoutes);
+app.use('/dogs', dogsRoutes);
 
 app.listen(3000, () => {
     console.log("Listening on 3000")
